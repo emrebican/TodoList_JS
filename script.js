@@ -3,7 +3,14 @@
 const INPUT = document.querySelector('#input');
 const BUTTON = document.querySelector('#button');
 const LIST = document.querySelector('#list');
+const alertDOM = document.querySelector('#alert');
 
+const alertFunction = (title, message, color = "warning") => `
+    <div class="alert alert-${color} alert-dismissible fade show fs-5" role="alert">
+      <strong style="color:orange">${title}</strong> ${message} <i style ="color: orange" class="fa-solid fa-face-smile-wink"></i>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+`
 // Button eventleri
 BUTTON.addEventListener('click', funcButton);
 LIST.addEventListener('click', deleteCheck);
@@ -17,7 +24,11 @@ function funcButton(event) {
 
     //input alanı boş eklemeye çalışırsa 
     if(INPUT.value === "" || INPUT.value === "") {
-        alert('You need to do something :)');    // alert ver    
+        alertDOM.innerHTML = alertFunction(
+            'ALERT!',
+             'You need to do something today',
+             'primary'
+            );    // alert ver    
     } else {                            // yoksa devam et
     
 
